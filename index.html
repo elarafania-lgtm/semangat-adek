@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>For You 💖</title>
+
+    <!-- SEO & Canonical -->
+    <link rel="canonical" href="https://elarafania-lgtm.github.io/semangat-adek/">
+    <meta name="description" content="Animasi sederhana penuh cinta untuk menaikkan mood dan senyum.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Style -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffd6e8, #ffeef5);
+            overflow: hidden;
+            font-family: "Segoe UI", system-ui, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text {
+            position: absolute;
+            text-align: center;
+            font-size: clamp(1.6rem, 4vw, 2.6rem);
+            color: #ff4f8b;
+            line-height: 1.4;
+            animation: fadePulse 3s ease-in-out infinite alternate;
+            padding: 0 1rem;
+        }
+
+        @keyframes fadePulse {
+            from { opacity: 0.4; transform: scale(0.98); }
+            to   { opacity: 1;   transform: scale(1); }
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -10vh;
+            font-size: 1.4rem;
+            pointer-events: none;
+            animation: floatUp linear forwards;
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-120vh) scale(1.6);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main aria-label="Mood Booster Animation">
+        <div class="text">
+            Senyum kamu itu cantik 🌸<br>
+            Semangat ya adek 💖
+        </div>
+    </main>
+
+    <!-- Script -->
+    <script>
+        function createHeart() {
+            const heart = document.createElement("span");
+            heart.className = "heart";
+            heart.textContent = "💖";
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 280);
+    </script>
+</body>
+</html>
